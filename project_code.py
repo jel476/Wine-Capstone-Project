@@ -47,30 +47,5 @@ print(wine.describe())
 wine_price_sorted = wine['price'].sort_values()
 print(wine_price_sorted.tail(10000))
 
+print(wine_price_sorted.head(10000))
 
-
-# Checking for duplicates  in the 'country' Column
-print(wine['country'].value_counts().sort_index())
-
-
-
-#checking for duplicates in the 'designation' Column
-designation_count = wine['designation'].value_counts().sort_index()
-print(designation_count)
-
-
-#checking for duplicates in the 'province' Column
-province_count = wine['province'].value_counts().sort_index()
-print(province_count)
-
-
-#checking for duplicates in the 'taster_name' Column
-print(wine['taster_name'].value_counts().sort_index())
-
-
-#checking for duplicates in the 'variety' Column
-print(wine['variety'].value_counts().sort_index())
-
-
-#checking for duplicates in the 'winery' Column
-print(wine['winery'].value_counts().sort_index())
