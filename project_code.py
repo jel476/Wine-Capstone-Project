@@ -49,3 +49,6 @@ print(wine_price_sorted.tail(10000))
 
 print(wine_price_sorted.head(10000))
 
+# exporting dataframe to new csv
+
+wine.to_csv(r'wine_clean.csv')
