@@ -70,7 +70,7 @@ plt.show()
 
 # exporting dataframe to new csv
 
-wine.to_csv(r'wine_clean.csv')
+wine2.to_csv(r'wine_clean.csv')
 
 
 # creating price subrgoups to further analyze data
@@ -122,4 +122,4 @@ plt.show()
 
 
 
-
+price_2.describe()
