@@ -255,4 +255,7 @@ print(lasso_reg_cv.best_params_)
 
 rmse = np.sqrt(mean_squared_error(y4_test, lasso.predict(X4_test)))
 
+rmse2 = np.sqrt(mean_squared_error(y4_test, ridge_X4.predict(X4_test)))
+
 print(rmse)
+print(rmse2)
