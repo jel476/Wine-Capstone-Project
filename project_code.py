@@ -9,6 +9,7 @@ from sklearn.linear_model import Lasso
 from sklearn.metrics import mean_squared_error
 
 
+
 wine = pd.read_csv('winemag-data-130k-v2.csv')
 
 #Checking for outliers
@@ -93,7 +94,7 @@ X= arrx.reshape(-1,1)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = .3, random_state=42)
 
 # cross validating alpha of Ridge
-c_space = np.logspace(-5,-4,50)
+c_space = [1, 0.1,0.01,0.001, 0.0001, 0.00001 ]
 param_grid = {'alpha': c_space}
 
 ridge_reg = Ridge()
@@ -233,7 +234,7 @@ print(ridge_X4.score(X4_test, y4_test))
 
 # lasso
 
-lasso = Lasso(alpha = 0.00001, normalize=True )
+lasso = Lasso(alpha = 0.0001, normalize=True )
 
 lasso.fit(X4_train,y4_train)
 lasso.predict(X4_test)
@@ -251,6 +252,7 @@ print(lasso_reg_cv.best_params_)
 
 
 
+
 # Root Mean Squared Error
 
 rmse = np.sqrt(mean_squared_error(y4_test, lasso.predict(X4_test)))
@@ -259,3 +261,16 @@ rmse2 = np.sqrt(mean_squared_error(y4_test, ridge_X4.predict(X4_test)))
 
 print(rmse)
 print(rmse2)
+
+
+# creating a data frame of the coefficients to see what feattures performed best
+
+
+coefficients = pd.concat([pd.DataFrame(winex4.columns[1:]),pd.DataFrame(np.transpose(lasso.coef_))], axis = 1)
+
+coefficients.columns = ['Feature', 'Coefficient']
+
+
+
+
+
